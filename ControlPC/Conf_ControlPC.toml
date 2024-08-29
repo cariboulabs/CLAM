@@ -1,0 +1,27 @@
+[ControlPC]
+name = "Test CLAM"
+details = "CLAM analysis"
+date_time = "10:36 - 04.08.2024"
+power = 22
+wave_type = "CW"
+sleep = 1
+results_file_name = "Results of analyzing"
+
+[ControlPC.span.azimuth]
+start = 0
+stop = 360
+step = 10
+
+[ControlPC.span.pitch]
+start = 0
+stop = 90
+step = 10
+
+
+[ControlPC.freq]
+start = 800000000
+stop = 800000000
+step = 1
+
+
+

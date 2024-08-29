@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+enum MessageType
+{
+    NOTHING = 0;
+    SYSTEM = 1;
+    INFORMATION = 2;
+    MOTORS = 3;
+    TRANSMIT = 4;
+    SET_FREQUENCY = 5;
+    SAMPLING = 6;
+    GET_RSSI = 7;
+}
+
+message System 
+{
+    string whoami = 1;
+    string status = 2;
+}
+
+message Information
+{
+    string info = 1;
+}
+
+message Motors
+{
+    float alpha = 1;
+    float beta = 2;
+}
+message Transmit
+{
+    float frequency = 1;
+    float power = 2;
+    string wavetype = 3;
+    bool onoff = 4;
+}
+message SetFrequency
+{
+    float frequency = 1;
+}
+message Sampling
+{
+    bool onoff = 1;
+}
+message GetRssi
+{
+    float rssi = 1;
+    int32 samples = 2;
+    float std = 3;
+}
+
+
+message Wrapper
+{
+    MessageType type = 1;
+    oneof messages
+    {
+        System sys_msg = 2;
+        Information info_msg = 3;
+        Motors motors_msg = 4;
+        Transmit tx_msg = 5;
+        SetFrequency freq_msg = 6;
+        Sampling sample_msg = 7;
+        GetRssi rssi_msg = 8;
+    }
+}
